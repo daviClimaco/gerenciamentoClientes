@@ -4,15 +4,15 @@ import daviClimaco.gerenciamentoClientes.entity.Cliente;
 import daviClimaco.gerenciamentoClientes.repository.ClienteRepository;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Entity(name = "Clientes")
-@Table(name = "tb_cliente")
+@Service
 public class ClienteServices {
     private ClienteRepository clienteRepository;
 
-    public ClienteServices(ClienteServices clienteServices) {
+    public ClienteServices(ClienteRepository clienteRepository) {
         this.clienteRepository = clienteRepository;
     }
 
