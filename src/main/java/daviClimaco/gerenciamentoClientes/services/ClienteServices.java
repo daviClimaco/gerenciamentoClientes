@@ -2,8 +2,6 @@ package daviClimaco.gerenciamentoClientes.services;
 
 import daviClimaco.gerenciamentoClientes.entity.Cliente;
 import daviClimaco.gerenciamentoClientes.repository.ClienteRepository;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,8 +14,8 @@ public class ClienteServices {
         this.clienteRepository = clienteRepository;
     }
 
-    public void salvar(Cliente cliente){
-        clienteRepository.save(cliente);
+    public Cliente salvar(Cliente cliente){
+        return clienteRepository.save(cliente);
     }
 
     public void deletar(Long id) {
@@ -30,6 +28,11 @@ public class ClienteServices {
 
     public List<Cliente> buscarTodos(){
         return clienteRepository.findAll();
+    }
+
+    public Cliente atualizar(Long id, Cliente cliente){
+        cliente.setId(id);
+        return clienteRepository.save(cliente);
     }
 
 }
